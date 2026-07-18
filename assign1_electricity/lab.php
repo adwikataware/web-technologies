@@ -444,7 +444,7 @@ if ($result) {
             <form method="post" action="">
                 <div class="field">
                     <label for="name">Full name</label>
-                    <input type="text" id="name" name="name" placeholder="e.g. Ayush Walunj" required
+                    <input type="text" id="name" name="name" placeholder="e.g. Adwika Taware" required
                            value="<?= htmlspecialchars($_POST['name'] ?? '') ?>">
                 </div>
                 <div class="field">
