@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  The servlet itself is wired up with @WebServlet in BillServlet, so this
+  descriptor only carries what an annotation cannot express.
+-->
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                             https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+  <display-name>Voltix - Electricity Bill Calculator</display-name>
+
+  <!-- Requests for the bare context path land on the calculator. -->
+  <welcome-file-list>
+    <welcome-file>bill</welcome-file>
+  </welcome-file-list>
+
+  <!-- Read form input as UTF-8 so names and addresses survive the round trip. -->
+  <request-character-encoding>UTF-8</request-character-encoding>
+  <response-character-encoding>UTF-8</response-character-encoding>
+
+</web-app>
