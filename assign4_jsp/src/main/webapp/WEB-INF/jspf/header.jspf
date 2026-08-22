@@ -1,0 +1,17 @@
+<%--
+    Shared page top, pulled in with the include directive:
+        <%@ include file="/WEB-INF/jspf/header.jspf" %>
+    A static include — its text is merged into the including page before the
+    JSP is translated, so both pages compile into one servlet.
+--%>
+<header class="topbar">
+  <div class="brandmark">
+    <span class="dot">&#9889;</span>
+    Electricity Billing <span class="sub">&middot; Web Technologies</span>
+  </div>
+  <div class="badges">
+    <span class="badge on">JSP</span>
+    <span class="badge">JSTL + EL</span>
+    <span class="badge">JavaBean</span>
+  </div>
+</header>

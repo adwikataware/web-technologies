@@ -1,0 +1,8 @@
+<%--
+    Shared page bottom. The copyright year comes from a JSP expression, which is
+    evaluated every time the page is served.
+--%>
+<footer class="foot">
+  <span>Assignment 4 &middot; Electricity Bill Calculator</span>
+  <span>JSP &middot; session-scoped history, no database &middot; <%= java.time.Year.now() %></span>
+</footer>
