@@ -37,7 +37,7 @@ public class ResultController {
     public Map<String, Object> syllabus() {
         List<Map<String, Object>> grades = Arrays.stream(Grade.values())
                 .map(grade -> Map.<String, Object>of(
-                        "code", grade.name(),
+                        "code", grade.getSymbol(),
                         "label", grade.getLabel(),
                         "minTotal", grade.getMinTotal(),
                         "points", grade.getPoints()))

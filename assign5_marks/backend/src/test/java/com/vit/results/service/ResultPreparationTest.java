@@ -23,18 +23,29 @@ class ResultPreparationTest {
 
     @Test
     void awardsGradesFromTheTotal() {
-        assertThat(Grade.forTotal(100)).isEqualTo(Grade.AA);
-        assertThat(Grade.forTotal(90)).isEqualTo(Grade.AA);
-        assertThat(Grade.forTotal(89)).isEqualTo(Grade.AB);
-        assertThat(Grade.forTotal(45)).isEqualTo(Grade.CD);
-        assertThat(Grade.forTotal(40)).isEqualTo(Grade.DD);
-        assertThat(Grade.forTotal(39)).isEqualTo(Grade.FF);
-        assertThat(Grade.forTotal(0)).isEqualTo(Grade.FF);
+        assertThat(Grade.forTotal(100)).isEqualTo(Grade.A_PLUS);
+        assertThat(Grade.forTotal(90)).isEqualTo(Grade.A_PLUS);
+        assertThat(Grade.forTotal(89)).isEqualTo(Grade.A);
+        assertThat(Grade.forTotal(79)).isEqualTo(Grade.B_PLUS);
+        assertThat(Grade.forTotal(60)).isEqualTo(Grade.B);
+        assertThat(Grade.forTotal(50)).isEqualTo(Grade.C_PLUS);
+        assertThat(Grade.forTotal(45)).isEqualTo(Grade.C);
+        assertThat(Grade.forTotal(40)).isEqualTo(Grade.D);
+        assertThat(Grade.forTotal(39)).isEqualTo(Grade.F);
+        assertThat(Grade.forTotal(0)).isEqualTo(Grade.F);
+    }
+
+    @Test
+    void reportsTheGradeAsItsSymbol() {
+        ResultCard card = prepare(26, 61, 24, 58, 22, 49, 27, 64);
+
+        assertThat(card.subjects()).extracting(ResultCard.SubjectScore::grade)
+                .containsExactly("A", "A", "B+", "A+");
     }
 
     @Test
     void weightsSgpaByCredits() {
-        // 87 AB(9)x4 + 82 AB(9)x4 + 71 BB(8)x3 + 91 AA(10)x3 = 126 points / 14 credits.
+        // 87 A(9)x4 + 82 A(9)x4 + 71 B+(8)x3 + 91 A+(10)x3 = 126 points / 14 credits.
         ResultCard card = prepare(26, 61, 24, 58, 22, 49, 27, 64);
 
         assertThat(card.totalCredits()).isEqualTo(14);
@@ -49,7 +60,7 @@ class ResultPreparationTest {
 
         assertThat(card.backlogs()).isEqualTo(1);
         assertThat(card.status()).isEqualTo("FAIL");
-        assertThat(card.subjects().get(2).grade()).isEqualTo("FF");
+        assertThat(card.subjects().get(2).grade()).isEqualTo("F");
         assertThat(card.subjects().get(2).gradePoints()).isZero();
     }
 

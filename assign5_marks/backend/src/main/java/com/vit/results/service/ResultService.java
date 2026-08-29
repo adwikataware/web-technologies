@@ -71,7 +71,7 @@ public class ResultService {
             scores.add(new ResultCard.SubjectScore(
                     subject.getCode(), subject.getName(), credits,
                     subject.getMse(), subject.getEse(), total,
-                    grade.name(), grade.getLabel(), grade.getPoints(), grade.isPass()));
+                    grade.getSymbol(), grade.getLabel(), grade.getPoints(), grade.isPass()));
 
             totalMarks += total;
             totalCredits += credits;

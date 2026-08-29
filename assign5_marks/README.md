@@ -30,20 +30,20 @@ A subject's `MSE + ESE` total decides its grade; the grade decides the points.
 
 | Total | Grade | Points |
 | ----- | ----- | ------ |
-| 90 – 100 | AA | 10 |
-| 80 – 89 | AB | 9 |
-| 70 – 79 | BB | 8 |
-| 60 – 69 | BC | 7 |
-| 50 – 59 | CC | 6 |
-| 45 – 49 | CD | 5 |
-| 40 – 44 | DD | 4 |
-| below 40 | FF | 0 (backlog) |
+| 90 – 100 | A+ | 10 |
+| 80 – 89 | A | 9 |
+| 70 – 79 | B+ | 8 |
+| 60 – 69 | B | 7 |
+| 50 – 59 | C+ | 6 |
+| 45 – 49 | C | 5 |
+| 40 – 44 | D | 4 |
+| below 40 | F | 0 (backlog) |
 
 ```
 SGPA = Σ (credits × grade points) / Σ credits
 ```
 
-A student passes the semester only if no subject lands on FF.
+A student passes the semester only if no subject lands on F.
 
 ## Running it
 

@@ -209,7 +209,7 @@ tbody tr:last-child td {
   font-weight: 600;
 }
 
-.grade-FF {
+.grade-fail {
   color: var(--bad);
   border-color: var(--bad);
 }

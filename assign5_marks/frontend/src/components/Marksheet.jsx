@@ -39,7 +39,7 @@ export default function Marksheet({ result, onClose, onDelete }) {
                 <td data-label="ESE">{subject.ese}</td>
                 <td data-label="Total">{subject.total}</td>
                 <td data-label="Grade">
-                  <span className={`grade grade-${subject.grade}`} title={subject.gradeLabel}>
+                  <span className={`grade${subject.passed ? '' : ' grade-fail'}`} title={subject.gradeLabel}>
                     {subject.grade}
                   </span>
                 </td>

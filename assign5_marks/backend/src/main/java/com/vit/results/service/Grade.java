@@ -3,23 +3,28 @@ package com.vit.results.service;
 /**
  * VIT ten point grading scale. The bands are checked from the top down, so the
  * first band whose minimum a total clears is the grade awarded.
+ *
+ * <p>The constant names carry the "+" spelt out because a Java identifier
+ * cannot contain one; {@link #getSymbol()} is what the marksheet shows.
  */
 public enum Grade {
 
-    AA("Outstanding", 90, 10),
-    AB("Excellent", 80, 9),
-    BB("Very Good", 70, 8),
-    BC("Good", 60, 7),
-    CC("Average", 50, 6),
-    CD("Satisfactory", 45, 5),
-    DD("Pass", 40, 4),
-    FF("Fail", 0, 0);
+    A_PLUS("A+", "Outstanding", 90, 10),
+    A("A", "Excellent", 80, 9),
+    B_PLUS("B+", "Very Good", 70, 8),
+    B("B", "Good", 60, 7),
+    C_PLUS("C+", "Average", 50, 6),
+    C("C", "Satisfactory", 45, 5),
+    D("D", "Pass", 40, 4),
+    F("F", "Fail", 0, 0);
 
+    private final String symbol;
     private final String label;
     private final int minTotal;
     private final int points;
 
-    Grade(String label, int minTotal, int points) {
+    Grade(String symbol, String label, int minTotal, int points) {
+        this.symbol = symbol;
         this.label = label;
         this.minTotal = minTotal;
         this.points = points;
@@ -31,7 +36,11 @@ public enum Grade {
                 return grade;
             }
         }
-        return FF;
+        return F;
+    }
+
+    public String getSymbol() {
+        return symbol;
     }
 
     public String getLabel() {
@@ -47,6 +56,6 @@ public enum Grade {
     }
 
     public boolean isPass() {
-        return this != FF;
+        return this != F;
     }
 }

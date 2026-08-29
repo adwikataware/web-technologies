@@ -141,7 +141,7 @@ export default function MarksForm({ syllabus, onSave, saving }) {
                 <td data-label="Total">{row.total ?? '—'}</td>
                 <td data-label="Grade">
                   {row.grade ? (
-                    <span className={`grade grade-${row.grade}`}>{row.grade}</span>
+                    <span className={`grade${row.gradePoints === 0 ? ' grade-fail' : ''}`}>{row.grade}</span>
                   ) : (
                     <span className="grade grade-empty">—</span>
                   )}
