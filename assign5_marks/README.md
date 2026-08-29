@@ -57,6 +57,10 @@ cd backend
 ./mvnw spring-boot:run
 ```
 
+`backend/` is an ordinary Maven Spring Boot project, so Spring Tool Suite (or
+IntelliJ, or VS Code) opens it with **Import → Existing Maven Projects**; the
+Maven wrapper above is just a way to run it without installing Maven first.
+
 It listens on <http://localhost:8080> and expects MongoDB on
 `mongodb://localhost:27017/vit_results`. Point it somewhere else — a different
 server, or MongoDB Atlas — with an environment variable:
@@ -193,3 +197,12 @@ boundary, credit-weighted SGPA, and a backlog failing the semester.
 | A student carrying a backlog | Validation, on the field that failed |
 | ![Mobile form](screenshots/05-mobile-form.png) | ![Mobile marksheet](screenshots/06-mobile-marksheet.png) |
 | Rows stack on a phone | …and so does the marksheet |
+
+The collection behind it:
+
+![The results collection](screenshots/07-mongodb.png)
+
+![One stored document](screenshots/08-mongodb-document.png)
+
+Only the raw marks are in the document — the grade, percentage and SGPA in the
+screenshots above are computed from them on read.
