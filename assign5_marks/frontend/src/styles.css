@@ -1,0 +1,458 @@
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --line: #e3e6ea;
+  --ink: #16181d;
+  --muted: #6b7280;
+  --accent: #2f5fe0;
+  --good: #12805c;
+  --good-bg: #e6f5ef;
+  --bad: #c02b3a;
+  --bad-bg: #fdecee;
+  --radius: 10px;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #101215;
+    --surface: #17191d;
+    --line: #2a2e35;
+    --ink: #e8eaed;
+    --muted: #9aa1ac;
+    --accent: #7d9bf5;
+    --good: #56d3a5;
+    --good-bg: #122b23;
+    --bad: #f28b95;
+    --bad-bg: #2c1619;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 15px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+}
+
+.masthead h1 {
+  margin: 0;
+  font-size: 24px;
+  letter-spacing: -0.01em;
+}
+
+.masthead p {
+  margin: 4px 0 24px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.layout {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  align-items: start;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.card h2 {
+  margin: 0 0 4px;
+  font-size: 17px;
+}
+
+.hint {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Form ------------------------------------------------------------------ */
+
+.grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  margin-bottom: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.field > span {
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--bg);
+  color: inherit;
+  font: inherit;
+}
+
+input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+input.invalid {
+  border-color: var(--bad);
+}
+
+.error {
+  color: var(--bad);
+  font-size: 12px;
+  font-style: normal;
+}
+
+.search {
+  margin-bottom: 14px;
+}
+
+/* Tables ---------------------------------------------------------------- */
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th,
+td {
+  padding: 9px 8px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+th {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+td input {
+  width: 74px;
+  padding: 6px 8px;
+}
+
+/* Keeps a cell's error text under its box without widening the column. */
+.mark-input {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.subject-code {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:hover td,
+.clickable:focus-visible td {
+  background: var(--bg);
+}
+
+.row-fail td {
+  background: var(--bad-bg);
+}
+
+.grade {
+  display: inline-block;
+  min-width: 30px;
+  padding: 2px 6px;
+  border-radius: 5px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.grade-FF {
+  color: var(--bad);
+  border-color: var(--bad);
+}
+
+.grade-empty {
+  color: var(--muted);
+}
+
+table.compact th,
+table.compact td {
+  padding: 8px 6px;
+}
+
+.status {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+
+.status.pass {
+  color: var(--good);
+  background: var(--good-bg);
+}
+
+.status.fail {
+  color: var(--bad);
+  background: var(--bad-bg);
+}
+
+/* Summaries and buttons ------------------------------------------------- */
+
+.preview {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin: 16px 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.preview strong {
+  color: var(--ink);
+  font-size: 15px;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 12px;
+  margin: 18px 0 0;
+}
+
+.summary div {
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.summary dt {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.summary dd {
+  margin: 3px 0 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+button {
+  padding: 9px 16px;
+  border: 1px solid var(--accent);
+  border-radius: 7px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+button.ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+button.danger {
+  background: transparent;
+  color: var(--bad);
+  border-color: var(--bad);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.sheet-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.banner {
+  margin: 0 0 18px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.banner.good {
+  background: var(--good-bg);
+  color: var(--good);
+}
+
+.banner.bad {
+  background: var(--bad-bg);
+  color: var(--bad);
+}
+
+.foot {
+  margin-top: 32px;
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Small screens: each row becomes its own labelled block ---------------- */
+
+@media (max-width: 780px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .page {
+    padding: 24px 14px 36px;
+  }
+
+  /* Rows become stacked, self-labelling blocks instead of scrolling sideways. */
+  .table-scroll {
+    overflow-x: visible;
+  }
+
+  table,
+  tbody,
+  tr,
+  td {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 5px 0;
+    border: none;
+    white-space: normal;
+  }
+
+  td::before {
+    content: attr(data-label);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    flex: none;
+  }
+
+  /* The subject is the heading of its own block, so it needs no label. */
+  td.subject-cell {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
+  td.subject-cell::before {
+    display: none;
+  }
+
+  td input {
+    width: 96px;
+  }
+
+  .mark-input {
+    align-items: flex-end;
+  }
+
+  .row-fail td {
+    background: none;
+  }
+
+  .row-fail {
+    background: var(--bad-bg);
+    border-radius: 8px;
+    padding: 12px;
+  }
+}
+
+@media print {
+  .banner,
+  .actions,
+  .foot,
+  .card:not(.sheet) {
+    display: none;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    border: none;
+    padding: 0;
+  }
+}
