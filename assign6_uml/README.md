@@ -10,6 +10,8 @@ it is the *input to a code generator*. Every box, every line and every
 multiplicity on the canvas changes the Java in the right-hand pane on the next
 keystroke.
 
+![The editor with the bundled library example loaded](screenshots/01-editor.png)
+
 ## Running it
 
 ```bash
@@ -200,15 +202,56 @@ from `Library` to `Loan`.
 
 ## Screenshots
 
+### The editor
+
+![Editing a class](screenshots/02-class-properties.png)
+
+The class header, its attributes with their visibility, `static` and `final`
+flags, and its operations with their parameters.
+
+![A selected relationship](screenshots/03-relationship-inspector.png)
+
+The role name becomes the generated field name; the multiplicity decides
+whether that field is a single reference or a `List`.
+
+![Drawing a relationship](screenshots/04-drawing-relationship.png)
+
+Pick a kind from the toolbar, then click the source and the target. A preview
+line follows the pointer and `Esc` cancels.
+
+### Generated code
+
+![Book.java](screenshots/05-generated-book.png)
+
+`Book.java` — the generalization and the realization have become `extends` and
+`implements`, and the constructor passes the parent's arguments up through
+`super(...)`.
+
+![The inherited operations, stubbed](screenshots/06-generated-overrides.png)
+
+Further down the same file. `displayInfo()` was declared on the diagram; the
+other three were inherited from the abstract parent and the interface and have
+been stubbed with `@Override`.
+
+![Library.java](screenshots/07-generated-library.png)
+
+`Library.java` — the composition of `LibraryItem` and the aggregation of
+`Member`, both at multiplicity `*`, have become `List` fields with their
+imports and add/remove helpers.
+
+### Validation
+
+![The problems panel](screenshots/08-validation.png)
+
+A second class renamed to `Book`. The duplicate is reported immediately, and
+the code keeps generating — the report is advisory, not blocking.
+
+### At 390 px
+
 | | |
 | --- | --- |
-| `01-editor.png` | the editor with the example loaded |
-| `02-class-properties.png` | editing a class, its attributes and operations |
-| `03-relationship-inspector.png` | role name and multiplicity on a composition |
-| `04-drawing-relationship.png` | the two-click gesture, mid-draw |
-| `05-generated-book.png` | `Book.java` — `extends`, `implements`, `super(...)` |
-| `06-generated-overrides.png` | the inherited operations, stubbed |
-| `07-generated-library.png` | composition and aggregation as `List<>` fields |
-| `08-validation.png` | the problems panel catching a duplicate class name |
-| `09-mobile-canvas.png` | canvas at 390 px |
-| `10-mobile-code.png` | generated code at 390 px |
+| ![Canvas at 390 px](screenshots/09-mobile-canvas.png) | ![Generated code at 390 px](screenshots/10-mobile-code.png) |
+
+The columns stack, the toolbar wraps and the six relationship buttons go
+two-up. The canvas keeps its own pan and zoom area, and the code listing
+scrolls sideways inside its own box rather than widening the page.
