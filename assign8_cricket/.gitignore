@@ -1,0 +1,9 @@
+# Java / Maven
+backend/target/
+
+# Editors and OS
+.idea/
+.vscode/
+*.iml
+Thumbs.db
+.DS_Store
